@@ -15,7 +15,7 @@ def pytest_collect_file(parent, path):
 
     """
     if path.ext == ".c" and path.basename.startswith("test_"):
-        return CTestFile(path, parent)
+        return CTestFile.from_parent(path, parent)
 
 
 class CTestFile(pytest.File):
